@@ -7,8 +7,13 @@ class Quiz {
         });
         this.service = service;
     }
+    
     addUsers(code, users) {
         return this.service.put(`/quiz/${code}/users`, {users})
+    }
+
+    addQuestionsAndQuizCode(questions) {
+        return this.service.post('/quiz', {questions})
     }
 }
 export default Quiz;
