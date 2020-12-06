@@ -3,6 +3,7 @@ import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import QuizCreation from './components/QuizCreation';
+import QuizCode from './components/QuizCode';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/quiz-creation" component={QuizCreation} />
+          <Route path="/quiz-code/:quizCode" component= {QuizCode} />
           <Route
             path="/login-spotify"
             render={() => {

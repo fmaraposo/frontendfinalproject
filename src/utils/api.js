@@ -1,19 +1,24 @@
 import axios from 'axios';
 
 class Quiz {
-    constructor() {
-        let service = axios.create({
-            baseURL: `${process.env.REACT_APP_PARTYPLAYLIST_API}/api`
-        });
-        this.service = service;
-    }
-    
-    addUsers(code, users) {
-        return this.service.put(`/quiz/${code}/users`, {users})
-    }
+  constructor() {
+    let service = axios.create({
+      baseURL: `${process.env.REACT_APP_PARTYPLAYLIST_API}/api`,
+    });
+    this.service = service;
+  }
 
-    addQuestionsAndQuizCode(questions) {
-        return this.service.post('/quiz', {questions})
-    }
+  addUsers(code, users) {
+    return this.service.put(`/quiz/${code}/users`, { users });
+  }
+
+  addQuestionsAndQuizCode(questions) {
+    return this.service.post('/quiz', {questions});
+  }
+
+  getQuizCode(code) {
+    return this.service.get(`/quiz/${code}`);
+  }
+
 }
 export default Quiz;

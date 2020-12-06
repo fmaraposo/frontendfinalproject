@@ -3,38 +3,41 @@ import Quiz from '../utils/api';
 
 class QuizCreation extends React.Component {
   state = {
-    question1: '',
-    question2: '',
-    question3: '',
-    question4: '',
-    question5: '',
+    questions: {
+      question1: '',
+      question2: '',
+      question3: '',
+      question4: '',
+      question5: '',
+    },
+    code: 0,
   };
 
   handleChange = (event) => {
-    let {name, value} = event.target;
+    let { name, value } = event.target;
+    this.setState((prevState) => ({
+      questions: {
+        // object that we want to update
+        ...prevState.questions, // keep all other key-value pairs
+        [name]: value, // update the value of specific key
+      },
+    }));
+  };
 
-    this.setState({
-      [name]: value
-    })
-  }
-  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const quizService = new Quiz();
-    const questions = this.state;
-    quizService.addQuestionsAndQuizCode(questions)
-    .then((response) => {
-      console.log(`These questions were added: ${response}`)
-    })
-  }
-
-/* handleFormSubmit=(event) => {
-    event.preventDefault();
-    const quizService = new Quiz();
-    let addedUser = this.state.displayName;
-    quizService.addUsers(this.state.quizCode, addedUser)
-    .then (console.log(`user ${addedUser} added`));
-}  */
+    const questions = this.state.questions;
+    const myQuestions = Object.values(questions);
+    quizService.addQuestionsAndQuizCode(myQuestions).then((myQuestions) => {
+      console.log(questions);
+      this.setState({
+        code: myQuestions.data.quizCode,
+      });
+      console.log(this.state.code);
+      this.props.history.push(`/quiz-code/${this.state.code}`);
+    });
+  };
 
   render() {
     return (
@@ -50,7 +53,7 @@ class QuizCreation extends React.Component {
                 type="text"
                 name="question1"
                 onChange={this.handleChange}
-                value={this.state.question1}
+                value={this.state.questions.question1}
                 placeholder="What's your favorite song?"
               />
             </div>
@@ -64,7 +67,7 @@ class QuizCreation extends React.Component {
                 type="text"
                 name="question2"
                 onChange={this.handleChange}
-                value={this.state.question2}
+                value={this.state.questions.question2}
                 placeholder="What's your favorite song?"
               />
             </div>
@@ -78,7 +81,7 @@ class QuizCreation extends React.Component {
                 type="text"
                 name="question3"
                 onChange={this.handleChange}
-                value={this.state.question3}
+                value={this.state.questions.question3}
                 placeholder="What's your favorite song?"
               />
             </div>
@@ -92,7 +95,7 @@ class QuizCreation extends React.Component {
                 type="text"
                 name="question4"
                 onChange={this.handleChange}
-                value={this.state.question4}
+                value={this.state.questions.question4}
                 placeholder="What's your favorite song?"
               />
             </div>
@@ -106,7 +109,7 @@ class QuizCreation extends React.Component {
                 type="text"
                 name="question5"
                 onChange={this.handleChange}
-                value={this.state.question5}
+                value={this.state.questions.question5}
                 placeholder="What's your favorite song?"
               />
             </div>
