@@ -11,7 +11,6 @@ class QuizCode extends React.Component {
   };
 
   handleButton = () => {
-    console.log('Button')
     this.props.history.push(`/quiz-code/lobbygame/${this.state.code}`);
   }
 

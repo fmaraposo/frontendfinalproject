@@ -24,5 +24,9 @@ class Quiz {
     return this.service.get(`/quiz-code/${code}`);
   } 
 
+  getQuizQuestions(code) {
+    return this.service.get(`/quiz-code/${code}`);
+  } 
+  
 }
 export default Quiz;

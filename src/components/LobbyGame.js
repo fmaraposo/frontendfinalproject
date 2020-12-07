@@ -16,7 +16,12 @@ class LobbyGame extends React.Component {
           users: game.users,
         });
       });
-    }, 1000);
+    }, 500);
+  }
+
+  handleButton = () => {
+    const quizCode = this.props.match.params.quizCode;
+    this.props.history.push(`/quiz-code/game/${quizCode}`);
   }
 
   render() {

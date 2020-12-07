@@ -1,5 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api';
+import { withRouter } from 'react-router-dom';
 
 class Home extends React.Component {
   state = {
@@ -20,10 +21,17 @@ class Home extends React.Component {
     const quizService = new Quiz();
     let addedUser = this.state.displayName;
     console.log(addedUser);
-    quizService
-      .addUsers(this.state.quizCode, addedUser)
-      .then(console.log(`user ${addedUser} added`));
+    quizService.addUsers(this.state.quizCode, addedUser)
+      .then((response) => {
+        console.log(`user ${addedUser} added`, response);
+        this.props.history.push(`/quiz-code/lobbygame/${this.state.quizCode}`);
+      })
   };
+
+/*   handleButton = () => {
+    this.props.history.push(`/quiz-code/lobbygame/${this.state.quizCode}`);
+    console.log('Take us to the Lobby');
+  }; */
 
   render() {
     return (
@@ -54,13 +62,15 @@ class Home extends React.Component {
           </div>
           <br />
           <div class="form-field">
-            <button id="joinButton">Join</button>
+            <button id="joinButton">
+              Join
+            </button>
           </div>
         </form>
         <br />
 
         <center>
-          Be and host and create a game! Log in{' '}
+          Be a host and create a game! Log in{' '}
           <a href="/login-spotify" id="host">
             here
           </a>
@@ -70,5 +80,5 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);
 //

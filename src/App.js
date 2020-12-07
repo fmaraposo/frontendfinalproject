@@ -6,6 +6,7 @@ import Home from './components/Home';
 import QuizCreation from './components/QuizCreation';
 import QuizCode from './components/QuizCode';
 import LobbyGame from './components/LobbyGame'
+import Game from './components/Game';
 
 class App extends React.Component {
   state = {
@@ -50,6 +51,10 @@ class App extends React.Component {
           <Route path="/quiz-code/lobbygame/:quizCode" 
             render={(props) => {
               return <LobbyGame {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
+            } }/>
+          <Route path="/quiz-code/game/:quizCode" 
+            render={(props) => {
+              return <Game {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
             } }/>
           <Route
             path="/login-spotify"
