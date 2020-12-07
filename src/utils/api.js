@@ -12,8 +12,8 @@ class Quiz {
     return this.service.put(`/quiz/${code}/users`, { users });
   }
 
-  addQuestionsAndQuizCode(questions) {
-    return this.service.post('/quiz', {questions});
+  addQuestionsAndQuizCode(user, questions) {
+    return this.service.post('/quiz', {user, questions});
   }
 
   getQuizCode(code) {

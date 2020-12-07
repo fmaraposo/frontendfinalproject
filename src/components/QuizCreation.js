@@ -1,5 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api';
+import {withRouter} from 'react-router-dom'
 
 class QuizCreation extends React.Component {
   state = {
@@ -29,7 +30,7 @@ class QuizCreation extends React.Component {
     const quizService = new Quiz();
     const questions = this.state.questions;
     const myQuestions = Object.values(questions);
-    quizService.addQuestionsAndQuizCode(myQuestions).then((myQuestions) => {
+    quizService.addQuestionsAndQuizCode(this.props.loggedInUser.displayName, myQuestions).then((myQuestions) => {
       console.log(questions);
       this.setState({
         code: myQuestions.data.quizCode,
@@ -121,4 +122,4 @@ class QuizCreation extends React.Component {
   }
 }
 
-export default QuizCreation;
+export default withRouter(QuizCreation);

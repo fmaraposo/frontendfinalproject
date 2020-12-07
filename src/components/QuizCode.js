@@ -1,23 +1,36 @@
 import React from 'react';
-import Quiz from '../utils/api';
-
+import ReactDOM from 'react-dom';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {withRouter} from 'react-router-dom'
+ 
 class QuizCode extends React.Component {
     state = {
-        quizCode: ""
-    }
-
-   /*  componentDidMount() {
-        const quizService = new Quiz();
-
-    } */
-
-    render () {
-        return (
-            <div>
-                <h1>Hello from QuizCode Page</h1>
-            </div>
-        )
-    }
+        code: this.props.match.params.quizCode,
+     
+    value: '',
+    copied: false
+  };
+ 
+ 
+  render() {
+    return (
+      <div>
+        <input value={this.state.code}
+          onChange={({target: {code}}) => this.setState({code, copied: false})} />
+ 
+        <CopyToClipboard text={this.state.code}
+          onCopy={() => this.setState({copied: true})}>
+          <span>Copy to clipboard with span</span>
+        </CopyToClipboard>
+ 
+        {this.state.copied ? <span style={{color: 'red'}}>Copied.</span> : null}
+      </div>
+    );
+  }
 }
+ /*
+const appRoot = document.createElement('div');
+document.body.appendChild(appRoot);
+ReactDOM.render(<QuizCode />, appRoot); */
 
-export default QuizCode;
+export default withRouter(QuizCode);
