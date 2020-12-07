@@ -1,6 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api';
-import {withRouter} from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom';
 
 class QuizCreation extends React.Component {
   state = {
@@ -30,18 +30,23 @@ class QuizCreation extends React.Component {
     const quizService = new Quiz();
     const questions = this.state.questions;
     const myQuestions = Object.values(questions);
-    quizService.addQuestionsAndQuizCode(this.props.loggedInUser.displayName, myQuestions).then((myQuestions) => {
-      console.log(questions);
-      this.setState({
-        code: myQuestions.data.quizCode,
+    quizService
+      .addQuestionsAndQuizCode(
+        localStorage.getItem('loggedInUser'),
+        myQuestions
+      )
+      .then((myQuestions) => {
+        console.log(questions);
+        this.setState({
+          code: myQuestions.data.quizCode,
+        });
+        console.log(this.state.code);
+        this.props.history.push(`/quiz-code/${this.state.code}`);
       });
-      console.log(this.state.code);
-      this.props.history.push(`/quiz-code/${this.state.code}`);
-    });
   };
 
   render() {
-    return (
+    return localStorage.getItem("loggedInUser") ? (
       <div className="quizzCreation">
         <h1>Hello from Quiz Creation</h1>
         <form onSubmit={this.handleFormSubmit}>
@@ -118,7 +123,7 @@ class QuizCreation extends React.Component {
           <button>Submit!</button>
         </form>
       </div>
-    );
+    ) : <Redirect path="/" />
   }
 }
 

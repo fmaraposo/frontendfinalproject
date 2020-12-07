@@ -1,31 +1,34 @@
 import React from 'react';
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import AuthService from './utils/auth';
 import Home from './components/Home';
 import QuizCreation from './components/QuizCreation';
 import QuizCode from './components/QuizCode';
-import AuthService from './utils/auth'
+import LobbyGame from './components/LobbyGame'
 
 class App extends React.Component {
   state = {
-    loggedInUser: null
-  }
+    loggedInUser: null,
+  };
 
   setCurrentUser = (user) => {
     this.setState({
-      loggedInUser: user  
-    })
-  }
+      loggedInUser: user,
+    });
+  };
 
   componentDidMount() {
-    if(this.state.loggedInUser === null) {
+    if (this.state.loggedInUser === null) {
       const authService = new AuthService();
-      authService.loggedin()
-      .then(response => {
-        if(response.data._id) {
-          this.setCurrentUser(response.data)
+      authService.loggedin().then((response) => {
+        if (response.data._id) {
+          this.setCurrentUser(response.data);
+          localStorage.setItem('loggedInUser', response.data.displayName);
+        } else {
+          localStorage.removeItem('loggedInUser');
         }
-      })
+      });
     }
   }
 
@@ -33,9 +36,21 @@ class App extends React.Component {
     return (
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/quiz-creation" render={() => { if(this.state.loggedInUser) { return <QuizCreation loggedInUser={this.state.loggedInUser} />} }} />
-          <Route path="/quiz-code/:quizCode" component= {QuizCode} />
+          <Route exact path="/" render = {() => {
+              return <Home loggedInUser={this.state.loggedInUser} />
+              }}
+            />
+          <Route
+            path="/quiz-creation"
+            render={() => {  
+                return <QuizCreation loggedInUser={localStorage.getItem('loggedInUser')} />;
+            }}
+          />
+          <Route exact path="/quiz-code/:quizCode" component={QuizCode} />
+          <Route path="/quiz-code/lobbygame/:quizCode" 
+            render={(props) => {
+              return <LobbyGame {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
+            } }/>
           <Route
             path="/login-spotify"
             render={() => {
