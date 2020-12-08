@@ -1,5 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api.js'
+import SearchBar from './SearchBar'
 
 class Game extends React.Component {
     state = {
@@ -24,13 +25,17 @@ class Game extends React.Component {
         return(
             <div>
                 <h1>Game</h1>
-                <div className="gameQuestions">
-                    <ul>
-                        {this.state.questions.map((question, index) => {
-                            return <li key={index}>{question}</li>
-                        })}
-                    </ul>
-                </div>
+                <form onSubmit={this.handleFormSubmit}>
+                    <div className="gameQuestions">
+                        <ul>
+                            {this.state.questions.map((question, index) => {
+                                return <li key={index}>{question}
+                                <div><SearchBar /></div></li>
+                            })}
+                        </ul>
+                    </div>
+                    <button>Submit Your Songs</button>
+                </form>
             </div>
         )
     }
