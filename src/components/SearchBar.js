@@ -7,7 +7,6 @@ class SearchBar extends React.Component {
         super(props);
         
         this.state = {
-
             term: []
         };
         
