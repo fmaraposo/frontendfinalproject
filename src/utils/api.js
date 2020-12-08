@@ -31,6 +31,10 @@ class Quiz {
   addSongs(quizCode, songs) {
     return this.service.put(`/quiz/${quizCode}/addsongs`, { songs });
   }
+
+  getSongs(code) {
+    return this.service.get(`/quiz/${code}/playlist`);
+  }
   
 }
 export default Quiz;
