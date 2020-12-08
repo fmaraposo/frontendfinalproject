@@ -32,8 +32,8 @@ class Quiz {
     return this.service.put(`/quiz/${quizCode}/addsongs`, { songs });
   }
 
-  getSongs(code) {
-    return this.service.get(`/quiz/${code}/playlist`);
+  getSongs(code, userToken) {
+    return this.service.post(`/quiz/${code}/playlist`, userToken);
   }
   
 }

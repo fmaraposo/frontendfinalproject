@@ -58,7 +58,7 @@ class App extends React.Component {
             render={(props) => {
               return <Game {...props}  loggedInUser={localStorage.getItem('loggedInUser')} />
             } }/>
-            <Route path="/quiz-code/:quizCode/playlist" component = {PlaylistDisplay} />
+            <Route path="/quiz-code/:quizCode/playlist" render ={() => {return <PlaylistDisplay loggedInUser={this.state.loggedInUser} />}}  />
           <Route
             path="/login-spotify"
             render={() => {
