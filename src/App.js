@@ -7,7 +7,8 @@ import QuizCreation from './components/QuizCreation';
 import QuizCode from './components/QuizCode';
 import LobbyGame from './components/LobbyGame'
 import Game from './components/Game';
-import PlaylistDisplay from './components/PlaylistDisplay';
+import PlaylistDisplay from './components/Playlist';
+import Navbar from './components/Navbar';
 
 class App extends React.Component {
   state = {
