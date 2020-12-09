@@ -12,8 +12,13 @@ class Quiz {
     return this.service.put(`/quiz/${code}/users`, { users });
   }
 
-  addQuestionsAndQuizCode(user, questions) {
-    return this.service.post('/quiz', {user, questions});
+  addQuestionsAndQuizCode(user, questions, playlistTitle, playlistDescription) {
+    return this.service.post('/quiz', {
+      user,
+      questions,
+      playlistTitle,
+      playlistDescription,
+    });
   }
 
   getQuizCode(code) {
@@ -22,19 +27,18 @@ class Quiz {
 
   getQuizUsers(code) {
     return this.service.get(`/quiz-code/${code}`);
-  } 
+  }
 
   getQuizQuestions(code) {
     return this.service.get(`/quiz-code/${code}`);
-  } 
+  }
 
   addSongs(quizCode, songs) {
     return this.service.put(`/quiz/${quizCode}/addsongs`, { songs });
   }
 
   getSongs(code, userToken) {
-    return this.service.post(`/quiz/${code}/playlist`, {userToken});
+    return this.service.post(`/quiz/${code}/playlist`, { userToken });
   }
-  
 }
 export default Quiz;

@@ -4,6 +4,8 @@ import { Redirect, withRouter } from 'react-router-dom';
 
 class QuizCreation extends React.Component {
   state = {
+    title: '',
+    description: '',
     questions: {
       question1: '',
       question2: '',
@@ -11,7 +13,7 @@ class QuizCreation extends React.Component {
       question4: '',
       question5: '',
     },
-    code: 0,
+    code: 0
   };
 
   handleChange = (event) => {
@@ -25,15 +27,26 @@ class QuizCreation extends React.Component {
     }));
   };
 
+  handleChangeTitleDescription = (event) => {
+    let {name, value} = event.target;
+    this.setState({
+      [name]:value
+    })
+  }
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const quizService = new Quiz();
     const questions = this.state.questions;
     const myQuestions = Object.values(questions);
+    const playlistTitle = this.state.title;
+    const playlistDescription = this.state.description;
     quizService
       .addQuestionsAndQuizCode(
         localStorage.getItem('loggedInUser'),
-        myQuestions
+        myQuestions,
+        playlistTitle,
+        playlistDescription
       )
       .then((myQuestions) => {
         console.log(questions);
@@ -50,6 +63,34 @@ class QuizCreation extends React.Component {
       <div className="quizzCreation">
         <h1>Hello from Quiz Creation</h1>
         <form onSubmit={this.handleFormSubmit}>
+          <div className="question">
+            <div className="labelQuestion">
+              <label>Playlist Title</label>
+            </div>
+            <div className="inputQuestion">
+              <input
+                type="text"
+                name="title"
+                onChange={this.handleChangeTitleDescription}
+                value={this.state.title}
+                placeholder="Give a name to your playlist"
+              />
+            </div>
+          </div>
+          <div className="question">
+            <div className="labelQuestion">
+              <label>Description</label>
+            </div>
+            <div className="inputQuestion">
+              <input
+                type="textarea"
+                name="description"
+                onChange={this.handleChangeTitleDescription}
+                value={this.state.description}
+                placeholder="Give a description to your playlist"
+              />
+            </div>
+          </div>
           <div className="question">
             <div className="labelQuestion">
               <label>Question 1</label>
