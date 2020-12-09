@@ -33,7 +33,7 @@ class Quiz {
   }
 
   getSongs(code, userToken) {
-    return this.service.post(`/quiz/${code}/playlist`, userToken);
+    return this.service.post(`/quiz/${code}/playlist`, {userToken});
   }
   
 }

@@ -46,7 +46,7 @@ class App extends React.Component {
           <Route
             path="/quiz-creation"
             render={() => {  
-                return <QuizCreation loggedInUser={localStorage.getItem('loggedInUser')} />;
+                return <QuizCreation loggedInUser={this.state.loggedInUser} />;
             }}
           />
           <Route exact path="/quiz-code/:quizCode" component={QuizCode} />

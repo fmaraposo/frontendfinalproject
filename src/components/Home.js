@@ -34,6 +34,8 @@ class Home extends React.Component {
   }; */
 
   render() {
+
+   
     return (
       <div>
         <h1 id="title">Join a Game</h1>
@@ -77,6 +79,7 @@ class Home extends React.Component {
         </center>
       </div>
     );
+  
   }
 }
 

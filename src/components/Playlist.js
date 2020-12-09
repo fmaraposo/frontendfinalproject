@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom'
 
 class Playlist extends React.Component {
   state = {
-    playlist: [],
+    playlist: null,
   };
 
   componentDidMount() {
@@ -30,31 +30,23 @@ class Playlist extends React.Component {
     const view = 'list'; // or 'coverart'
     const theme = 'black'; // or 'white'
 
-    const spotifyUri =[ "spotify:track:3bWGaqVeYKMlLss40mPgNn", "spotify:track:7iN1s7xHE4ifF5povM6A48"]
+  //  const spotifyUri =[ "spotify:track:3bWGaqVeYKMlLss40mPgNn", "spotify:track:7iN1s7xHE4ifF5povM6A48"]
 
     return (
       <div>
         <h1>Playlist display</h1>
         <div>
-          <ul>
-            {this.state.playlist.map((playlist, index) => {
-              return (
-                <div>
-                  <li key={index}>{this.state.playlist[index].name}</li>
+          
+
                   {/* <ReactAudioPlayer src={this.state.playlist[index].preview_url} controls /> */}
                   <SpotifyPlayer
-                    uri={spotifyUri}
+                    uri={this.state.playlist}
                     size={size}
                     view={view}
                     theme={theme}
                   />
-                  <li>
-                    <a href={this.state.playlist[index].href}>What's this</a>
-                  </li>
-                </div>
-              );
-            })}
-          </ul>
+
+     
         </div>
       </div>
     );

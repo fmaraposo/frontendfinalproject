@@ -5,9 +5,10 @@ class LobbyGame extends React.Component {
   state = {
     users: [],
   };
+  intervalID = 0;
 
   componentDidMount() {
-    setInterval(() => {
+    this.intervalID = setInterval(() => {
       const quizService = new Quiz();
       const quizCode = this.props.match.params.quizCode;
       quizService.getQuizUsers(quizCode).then((response) => {
@@ -20,6 +21,7 @@ class LobbyGame extends React.Component {
   }
 
   handleButton = () => {
+    clearInterval(this.intervalID)
     const quizCode = this.props.match.params.quizCode;
     this.props.history.push(`/quiz-code/game/${quizCode}`);
   }
