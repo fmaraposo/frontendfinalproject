@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import {/*  Redirect, */ Route, Switch } from 'react-router-dom';
 import AuthService from './utils/auth';
 import Home from './components/Home';
 import QuizCreation from './components/QuizCreation';
@@ -8,7 +8,6 @@ import QuizCode from './components/QuizCode';
 import LobbyGame from './components/LobbyGame'
 import Game from './components/Game';
 import PlaylistDisplay from './components/Playlist';
-import Navbar from './components/Navbar';
 
 class App extends React.Component {
   state = {

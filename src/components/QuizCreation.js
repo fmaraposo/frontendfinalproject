@@ -13,7 +13,7 @@ class QuizCreation extends React.Component {
       question4: '',
       question5: '',
     },
-    code: 0
+    code: 0,
   };
 
   handleChange = (event) => {
@@ -28,11 +28,11 @@ class QuizCreation extends React.Component {
   };
 
   handleChangeTitleDescription = (event) => {
-    let {name, value} = event.target;
+    let { name, value } = event.target;
     this.setState({
-      [name]:value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -59,7 +59,7 @@ class QuizCreation extends React.Component {
   };
 
   render() {
-    return localStorage.getItem("loggedInUser") ? (
+    return localStorage.getItem('loggedInUser') ? (
       <div className="quizzCreation">
         <h1>Hello from Quiz Creation</h1>
         <form onSubmit={this.handleFormSubmit}>
@@ -164,7 +164,9 @@ class QuizCreation extends React.Component {
           <button>Submit!</button>
         </form>
       </div>
-    ) : <Redirect path="/" />
+    ) : (
+      <Redirect path="/" />
+    );
   }
 }
 
