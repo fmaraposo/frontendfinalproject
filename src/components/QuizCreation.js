@@ -74,6 +74,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChangeTitleDescription}
                 value={this.state.title}
                 placeholder="Give a name to your playlist"
+                required
               />
             </div>
           </div>
@@ -102,6 +103,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question1}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -116,6 +118,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question2}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -130,6 +133,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question3}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -144,6 +148,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question4}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -158,6 +163,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question5}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
