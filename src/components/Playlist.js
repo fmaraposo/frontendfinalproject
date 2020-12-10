@@ -1,6 +1,5 @@
 import React from 'react';
 import Quiz from '../utils/api';
-/* import ReactAudioPlayer from 'react-audio-player'; */
 import SpotifyPlayer from 'react-spotify-player';
 import {withRouter} from 'react-router-dom'
 
@@ -23,7 +22,7 @@ class Playlist extends React.Component {
 
   render() {
     const size = {
-      width: '100%',
+      width: "100%",
       height: 300,
     };
 
