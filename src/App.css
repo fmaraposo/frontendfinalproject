@@ -87,11 +87,13 @@ body {
   font-size:2.5em;
   font-family: 'Do Hyeon', sans-serif;
 }
+
 ::placeholder {
   color: #333333;
   font-size: 1.0em;
   font-family: 'Do Hyeon', sans-serif;
 }
+
 .treat-button {
   font-family: 'Do Hyeon', sans-serif;
   font-size: 4vmin;
@@ -189,15 +191,10 @@ body {
   height: 100vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
   align-content: center;
   flex-direction: column;
-  -webkit-animation: bgcolor 20s infinite;
   animation: bgcolor 10s infinite;
-  -webkit-animation-direction: alternate;
   animation-direction: alternate;
-  height: 100vh;
-  width: 100vw;
 }
 
 @keyframes bgcolor {
@@ -222,6 +219,40 @@ body {
   }
 }
 
-.quizcode-pastebutton {
+.primary-subtitle {
+  color: white;
+  font-size:1.5em;
+  font-family: 'Do Hyeon', sans-serif;
+}
 
+.treat-button-quizcode {
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 4vmin;
+  appearance: none;
+  background: linear-gradient(to bottom, #F46001, #E14802);
+  border: none;
+  color: #FFF;
+  border-radius: 2em;
+  padding: .6em 1.5em;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 0 1em rgba(white, .2); 
+  transition: transform .1s cubic-bezier(.5, 0, .5, 1);
+  box-shadow: 0.2s;
+  margin: auto;
+  margin-top: 2%;
+  width: 12%;
+  height: 2em;
+  font-size: 20px;
+  text-align: center;
+}
+
+.quizcode-title {
+  margin-top: 4em
+}
+
+.quizcode-pastebutton {
+  margin-top: 4em;
 }

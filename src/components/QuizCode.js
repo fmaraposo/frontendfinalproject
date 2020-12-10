@@ -17,8 +17,12 @@ class QuizCode extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="quizcode-wrapper">
         <Navbar />
+        <div className="quizcode-title">
+          <h1 className="primary-title">Here's your quiz code! </h1>
+          <h2 className="primary-subtitle">Share it with your friends! </h2>
+        </div>
         <div className="quizcode-wrapper">
           <div className="quizcode-pastebutton">
             <input
@@ -34,15 +38,21 @@ class QuizCode extends React.Component {
               text={this.state.code}
               onCopy={() => this.setState({ copied: true })}
             >
-              <i className="far fa-copy"></i>
+              <i
+                style={{ color: 'white', cursor: 'pointer' }}
+                className="far fa-copy fa-2x"
+              ></i>
             </CopyToClipboard>
 
             {this.state.copied ? (
               <span style={{ color: 'red' }}>Copied.</span>
             ) : null}
           </div>
-          <div>
-            <button className="treat-button" onClick={this.handleButton}>
+          <div className="form-field">
+            <button
+              className="treat-button-quizcode"
+              onClick={this.handleButton}
+            >
               Join Lobby
             </button>
           </div>

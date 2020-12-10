@@ -180,7 +180,9 @@ class QuizCreation extends React.Component {
             </div>
           </div>
           </div>
+          <div className="form-field">
           <button className="treat-button">Submit!</button>
+          </div>
         </form>
       </div>
     ) : (

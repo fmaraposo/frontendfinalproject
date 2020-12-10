@@ -46,7 +46,7 @@ class Playlist extends React.Component {
                     theme={theme}
                   />
 
-     
+      
         </div>
       </div>
     );
