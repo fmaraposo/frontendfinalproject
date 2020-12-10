@@ -1,6 +1,7 @@
 import React from 'react';
 import Quiz from '../utils/api';
 import { Redirect, withRouter } from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
 
 class QuizCreation extends React.Component {
   state = {
@@ -60,114 +61,128 @@ class QuizCreation extends React.Component {
 
   render() {
     return localStorage.getItem('loggedInUser') ? (
-      <div className="quizzCreation">
-        <h1>Hello from Quiz Creation</h1>
+      <div className="quizCreation">
+        <Navbar />
+        <h1 className="primary-title">Let's create your quiz!</h1>
         <form onSubmit={this.handleFormSubmit}>
-          <div className="question">
-            <div className="labelQuestion">
-              <label>Playlist Title</label>
+          <div className="title-description-section">
+            <div className="question">
+              <div className="labelQuestion">
+              </div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  type="text"
+                  name="title"
+                  onChange={this.handleChangeTitleDescription}
+                  value={this.state.title}
+                  placeholder="Playlist Title"
+                  required
+                />
+              </div>
             </div>
-            <div className="inputQuestion">
-              <input
-                type="text"
-                name="title"
-                onChange={this.handleChangeTitleDescription}
-                value={this.state.title}
-                placeholder="Give a name to your playlist"
-                required
-              />
-            </div>
-          </div>
-          <div className="question">
-            <div className="labelQuestion">
-              <label>Description</label>
-            </div>
-            <div className="inputQuestion">
-              <input
-                type="textarea"
-                name="description"
-                onChange={this.handleChangeTitleDescription}
-                value={this.state.description}
-                placeholder="Give a description to your playlist"
-              />
-            </div>
-          </div>
-          <div className="question">
-            <div className="labelQuestion">
-              <label>Question 1</label>
-            </div>
-            <div className="inputQuestion">
-              <input
-                type="text"
-                name="question1"
-                onChange={this.handleChange}
-                value={this.state.questions.question1}
-                placeholder="What's your favorite song?"
-                required
-              />
+            <div className="question">
+              <div className="labelQuestion">
+              </div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  type="textarea"
+                  name="description"
+                  onChange={this.handleChangeTitleDescription}
+                  value={this.state.description}
+                  placeholder="Describe your playlist "
+                />
+              </div>
             </div>
           </div>
-          <div className="question">
-            <div className="labelQuestion">
-              <label>Question 2</label>
+          <div className="questions-1-2-3">
+            <div className="question">
+              <div className="labelQuestion">
+              </div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  style={{width:"280px"}}
+                  type="text"
+                  name="question1"
+                  onChange={this.handleChange}
+                  value={this.state.questions.question1}
+                  placeholder="1. What song gets you energized?"
+                  required
+                />
+              </div>
             </div>
-            <div className="inputQuestion">
-              <input
-                type="text"
-                name="question2"
-                onChange={this.handleChange}
-                value={this.state.questions.question2}
-                placeholder="What's your favorite song?"
-                required
-              />
+            <div className="question">
+              <div className="labelQuestion">
+              </div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  style={{width:"360px"}}
+                  type="text"
+                  name="question2"
+                  onChange={this.handleChange}
+                  value={this.state.questions.question2}
+                  placeholder="2. What song leads you to the dance floor?"
+                  required
+                />
+              </div>
+            </div>
+            <div className="question">
+              <div className="labelQuestion">
+              </div>
+              <div className="inputQuestion">
+                <input
+                  className="primary-input"
+                  style={{width:"330px"}}
+                  type="text"
+                  name="question3"
+                  onChange={this.handleChange}
+                  value={this.state.questions.question3}
+                  placeholder="3.What song can make you romantic?"
+                  required
+                />
+              </div>
             </div>
           </div>
+          <div className="questions-4-5">
           <div className="question">
             <div className="labelQuestion">
-              <label>Question 3</label>
             </div>
             <div className="inputQuestion">
               <input
-                type="text"
-                name="question3"
-                onChange={this.handleChange}
-                value={this.state.questions.question3}
-                placeholder="What's your favorite song?"
-                required
-              />
-            </div>
-          </div>
-          <div className="question">
-            <div className="labelQuestion">
-              <label>Question 4</label>
-            </div>
-            <div className="inputQuestion">
-              <input
+                className="primary-input"
+                style={{width:"330px"}}
                 type="text"
                 name="question4"
                 onChange={this.handleChange}
                 value={this.state.questions.question4}
-                placeholder="What's your favorite song?"
+                placeholder="4.What song makes you want a beer?"
                 required
               />
             </div>
           </div>
           <div className="question">
             <div className="labelQuestion">
-              <label>Question 5</label>
             </div>
             <div className="inputQuestion">
               <input
+                className="primary-input"
+                style={{width:"300px"}}
                 type="text"
                 name="question5"
                 onChange={this.handleChange}
                 value={this.state.questions.question5}
-                placeholder="What's your favorite song?"
+                placeholder=" 5. What's your favorite song?"
                 required
               />
             </div>
           </div>
-          <button>Submit!</button>
+          </div>
+          <div className="form-field">
+          <button className="treat-button">Submit!</button>
+          </div>
         </form>
       </div>
     ) : (

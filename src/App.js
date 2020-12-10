@@ -8,7 +8,6 @@ import QuizCode from './components/QuizCode';
 import LobbyGame from './components/LobbyGame'
 import Game from './components/Game';
 import PlaylistDisplay from './components/Playlist';
-import Navbar from './components/Navbar/Navbar';
 
 class App extends React.Component {
   state = {

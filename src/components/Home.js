@@ -28,11 +28,6 @@ class Home extends React.Component {
     });
   };
 
-  /*   handleButton = () => {
-    this.props.history.push(`/quiz-code/lobbygame/${this.state.quizCode}`);
-    console.log('Take us to the Lobby');
-  }; */
-
   render() {
     return (
       <div className="home-wrapper">
@@ -62,6 +57,7 @@ class Home extends React.Component {
                 value={this.state.displayName}
                 placeholder="Display Name"
                 autoFocus
+                required
               />
             </div>
             <br />
