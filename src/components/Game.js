@@ -1,7 +1,8 @@
 import React from 'react';
 import Quiz from '../utils/api.js';
 /* import SearchBar from './SearchBar'; */
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
 
 class Game extends React.Component {
   state = {
@@ -48,36 +49,39 @@ class Game extends React.Component {
       console.log(response);
       console.log(`These songs were submited: ${songs}`);
       console.log(`These quizCode was submited: ${quizCode}`);
-      this.props.history.push(`/quiz-code/${quizCode}/playlist`)
+      this.props.history.push(`/quiz-code/${quizCode}/playlist`);
     });
   };
 
   render() {
     return (
       <div>
-        <h1>Game</h1>
-        <form onSubmit={this.handleFormSubmit}>
-          <div className="gameQuestions">
-            <form onSubmit={this.handleFormSubmit}>
-              <ul>
-                {this.state.questions.map((question, index) => {
-                  return (
-                    <div key={index}>
-                      <li>{question}</li>
-                      <input
-                        type="text"
-                        name={`song${index}`}
-                        onChange={this.handleChange}
-                        value={this.state.songs[`song${index}`]}
-                      />
-                    </div>
-                  );
-                })}
-              </ul>
-            </form>
-          </div>
-          <button>Submit Your Songs</button>
-        </form>
+        <Navbar />
+        <div className="lobby-game-wrapper">
+          <h1 className="primary-title">Game</h1>
+          <form onSubmit={this.handleFormSubmit}>
+            <div className="gameQuestions">
+              <form onSubmit={this.handleFormSubmit}>
+                <ul>
+                  {this.state.questions.map((question, index) => {
+                    return (
+                      <div key={index}>
+                        <li>{question}</li>
+                        <input
+                          type="text"
+                          name={`song${index}`}
+                          onChange={this.handleChange}
+                          value={this.state.songs[`song${index}`]}
+                        />
+                      </div>
+                    );
+                  })}
+                </ul>
+              </form>
+            </div>
+            <button className="treat-button-quizcode">Submit</button>
+          </form>
+        </div>
       </div>
     );
   }

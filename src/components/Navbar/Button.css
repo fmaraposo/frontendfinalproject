@@ -32,11 +32,11 @@
 }
 
 .btn--medium {
-    padding: 8px 20px;
-    border-radius: 4px;
+    padding: 6px 20px;
+    border-radius: 6px;
     font-size: 18px;
     color: #fff;
-
+    font-family: 'Do Hyeon', sans-serif;
 }
 
 .btn--large {
