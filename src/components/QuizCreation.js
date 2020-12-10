@@ -60,7 +60,7 @@ class QuizCreation extends React.Component {
   };
 
   render() {
-    return localStorage.getItem('loggedInUser') ? (
+    return /* localStorage.getItem('loggedInUser') ? */ (
       <div className="quizCreation">
         <Navbar />
         <h1 className="primary-title">Let's create your quiz!</h1>
@@ -185,9 +185,9 @@ class QuizCreation extends React.Component {
           </div>
         </form>
       </div>
-    ) : (
+    ) /* : (
       <Redirect path="/" />
-    );
+    ); */
   }
 }
 

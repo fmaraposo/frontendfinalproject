@@ -1,6 +1,5 @@
 import React from 'react';
 import Quiz from '../utils/api';
-/* import ReactAudioPlayer from 'react-audio-player'; */
 import SpotifyPlayer from 'react-spotify-player';
 import {withRouter} from 'react-router-dom'
 

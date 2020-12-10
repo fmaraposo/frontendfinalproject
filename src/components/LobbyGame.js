@@ -1,5 +1,7 @@
 import React from 'react';
 import Quiz from '../utils/api';
+import Navbar from './Navbar/Navbar'
+import '../App.css';
 
 class LobbyGame extends React.Component {
   state = {
@@ -21,25 +23,34 @@ class LobbyGame extends React.Component {
   }
 
   handleButton = () => {
-    clearInterval(this.intervalID)
+    clearInterval(this.intervalID);
     const quizCode = this.props.match.params.quizCode;
     this.props.history.push(`/quiz-code/game/${quizCode}`);
-  }
+  };
 
   render() {
     return this.state.users ? (
       <div>
-        <h1>Hello from Lobby</h1>
-        <div>
+      <Navbar />
+        <div className="lobby-game-wrapper" >
+          <h1 className="primary-title">Waiting for all players...</h1>
           <div>
-            <ul>
-              {this.state.users.map((user, index) => {
-                return <li key={index}>{user}</li>;
-              })}
-            </ul>
+            <div>
+              <ul>
+                {this.state.users.map((user, index) => {
+                  return (
+                    <li className="users-lobby" key={index}>
+                      {user}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+          <div className="form-field">
+          <button className="treat-button" onClick={this.handleButton}>Start Game</button>
           </div>
         </div>
-        <button onClick={this.handleButton}>Start Game</button>
       </div>
     ) : (
       <div>Loading</div>
