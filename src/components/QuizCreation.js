@@ -13,7 +13,7 @@ class QuizCreation extends React.Component {
       question4: '',
       question5: '',
     },
-    code: 0
+    code: 0,
   };
 
   handleChange = (event) => {
@@ -28,11 +28,11 @@ class QuizCreation extends React.Component {
   };
 
   handleChangeTitleDescription = (event) => {
-    let {name, value} = event.target;
+    let { name, value } = event.target;
     this.setState({
-      [name]:value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
@@ -59,7 +59,7 @@ class QuizCreation extends React.Component {
   };
 
   render() {
-    return localStorage.getItem("loggedInUser") ? (
+    return localStorage.getItem('loggedInUser') ? (
       <div className="quizzCreation">
         <h1>Hello from Quiz Creation</h1>
         <form onSubmit={this.handleFormSubmit}>
@@ -74,6 +74,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChangeTitleDescription}
                 value={this.state.title}
                 placeholder="Give a name to your playlist"
+                required
               />
             </div>
           </div>
@@ -102,6 +103,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question1}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -116,6 +118,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question2}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -130,6 +133,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question3}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -144,6 +148,7 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question4}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
@@ -158,13 +163,16 @@ class QuizCreation extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.questions.question5}
                 placeholder="What's your favorite song?"
+                required
               />
             </div>
           </div>
           <button>Submit!</button>
         </form>
       </div>
-    ) : <Redirect path="/" />
+    ) : (
+      <Redirect path="/" />
+    );
   }
 }
 
