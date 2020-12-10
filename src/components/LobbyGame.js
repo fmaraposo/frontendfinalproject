@@ -1,6 +1,6 @@
 import React from 'react';
 import Quiz from '../utils/api';
-import Navbar from './Navbar/Navbar'
+import Navbar from './Navbar/Navbar';
 import '../App.css';
 
 class LobbyGame extends React.Component {
@@ -30,13 +30,17 @@ class LobbyGame extends React.Component {
 
   render() {
     return this.state.users ? (
-      <div>
-      <Navbar />
-        <div className="lobby-game-wrapper" >
-          <h1 className="primary-title">Waiting for all players...</h1>
+      <div className="lobby-game-wrapper">
+        <div>
+          <Navbar />
+        </div>
+        <div className="wrapper-lobbygame">
           <div>
-            <div>
-              <ul>
+            <h1 className="primary-title">Waiting for all players...</h1>
+          </div>
+          <div>
+            <div className="users-display">
+              <ul className="users-ul">
                 {this.state.users.map((user, index) => {
                   return (
                     <li className="users-lobby" key={index}>
@@ -46,9 +50,11 @@ class LobbyGame extends React.Component {
                 })}
               </ul>
             </div>
-          </div>
-          <div className="form-field">
-          <button className="treat-button" onClick={this.handleButton}>Start Game</button>
+            <div className="form-field">
+              <button className="treat-button" onClick={this.handleButton}>
+                Start Game
+              </button>
+            </div>
           </div>
         </div>
       </div>

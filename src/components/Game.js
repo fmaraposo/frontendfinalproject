@@ -62,12 +62,13 @@ class Game extends React.Component {
           <form onSubmit={this.handleFormSubmit}>
             <div className="gameQuestions">
               <form onSubmit={this.handleFormSubmit}>
-                <ul>
+                <ul className="game-board">
                   {this.state.questions.map((question, index) => {
                     return (
                       <div key={index}>
-                        <li>{question}</li>
+                        <li className="questions-game">{question}</li>
                         <input
+                          className="primary-input-game"
                           type="text"
                           name={`song${index}`}
                           onChange={this.handleChange}
