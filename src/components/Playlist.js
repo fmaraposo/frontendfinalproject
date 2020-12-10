@@ -22,7 +22,7 @@ class Playlist extends React.Component {
 
   render() {
     const size = {
-      width: '100%',
+      width: "100%",
       height: 300,
     };
 
