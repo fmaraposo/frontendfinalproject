@@ -28,7 +28,7 @@ class QuizCode extends React.Component {
           text={this.state.code}
           onCopy={() => this.setState({ copied: true })}
         >
-          <span>Copy to clipboard with span</span>
+          <i className='far fa-copy'></i>
         </CopyToClipboard>
 
         {this.state.copied ? (
