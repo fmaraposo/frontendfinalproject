@@ -12,6 +12,10 @@ class AuthService {
     loggedin = () => {
         return this.service.get('/loggedin')
     }
+
+    // logout = () => {
+    //     return this.service.post('/logout');
+    // }
 }
 
 export default AuthService;

@@ -20,8 +20,8 @@ class QuizCode extends React.Component {
       <div className="quizcode-wrapper">
         <Navbar />
         <div className="quizcode-title">
-          <h1 className="primary-title">Here's your quiz code! </h1>
-          <h2 className="primary-subtitle">Share it with your friends! </h2>
+          <h1 className="primary-title">Here's your quiz code!</h1>
+          <h2 className="primary-subtitle">Share it with your friends</h2>
         </div>
         <div className="quizcode-wrapper">
           <div className="quizcode-pastebutton">
@@ -45,7 +45,7 @@ class QuizCode extends React.Component {
             </CopyToClipboard>
 
             {this.state.copied ? (
-              <span style={{ color: 'red' }}>Copied.</span>
+              <span style={{ fontWeight: "bold", color: 'red' }}> Copied.</span>
             ) : null}
           </div>
           <div className="form-field">

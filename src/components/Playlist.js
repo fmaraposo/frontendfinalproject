@@ -1,7 +1,8 @@
 import React from 'react';
 import Quiz from '../utils/api';
 import SpotifyPlayer from 'react-spotify-player';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import Navbar from './Navbar/Navbar';
 
 class Playlist extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class Playlist extends React.Component {
 
   componentDidMount() {
     const code = this.props.match.params.quizCode;
-    let userToken = this.props.loggedInUser.accessToken
+    let userToken = this.props.loggedInUser.accessToken;
     const quizService = new Quiz();
     quizService.getSongs(code, userToken).then((response) => {
       console.log(response.data);
@@ -22,8 +23,8 @@ class Playlist extends React.Component {
 
   render() {
     const size = {
-      width: "100%",
-      height: 300,
+      width: "85%",
+      height: 600,
     };
 
     const view = 'list'; // or 'coverart'
@@ -32,11 +33,12 @@ class Playlist extends React.Component {
   //  const spotifyUri =[ "spotify:track:3bWGaqVeYKMlLss40mPgNn", "spotify:track:7iN1s7xHE4ifF5povM6A48"]
 
     return (
-      <div>
-        <h1>Playlist display</h1>
+      <div className="quizcode-wrapper">
         <div>
-          
-
+          <Navbar />
+        </div>
+        <h1>Game's Playlist</h1>
+        <div>
                   {/* <ReactAudioPlayer src={this.state.playlist[index].preview_url} controls /> */}
                   <SpotifyPlayer
                     uri={this.state.playlist}
@@ -44,8 +46,6 @@ class Playlist extends React.Component {
                     view={view}
                     theme={theme}
                   />
-
-      
         </div>
       </div>
     );

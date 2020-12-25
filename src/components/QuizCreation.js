@@ -124,7 +124,7 @@ class QuizCreation extends React.Component {
                   name="question2"
                   onChange={this.handleChange}
                   value={this.state.questions.question2}
-                  placeholder="2. What song leads you to the dance floor?"
+                  placeholder="2. What song makes you want to dance?"
                   required
                 />
               </div>
@@ -140,7 +140,7 @@ class QuizCreation extends React.Component {
                   name="question3"
                   onChange={this.handleChange}
                   value={this.state.questions.question3}
-                  placeholder="3.What song can make you romantic?"
+                  placeholder="3.What song brings the romance?"
                   required
                 />
               </div>
@@ -158,7 +158,7 @@ class QuizCreation extends React.Component {
                 name="question4"
                 onChange={this.handleChange}
                 value={this.state.questions.question4}
-                placeholder="4.What song makes you want a beer?"
+                placeholder="4.What song are you embarrassed to like?"
                 required
               />
             </div>
@@ -174,14 +174,14 @@ class QuizCreation extends React.Component {
                 name="question5"
                 onChange={this.handleChange}
                 value={this.state.questions.question5}
-                placeholder=" 5. What's your favorite song?"
+                placeholder=" 5. What's your all-time favorite song?"
                 required
               />
             </div>
           </div>
           </div>
           <div className="form-field">
-          <button className="treat-button">Submit!</button>
+          <button className="treat-button-home">Submit!</button>
           </div>
         </form>
       </div>

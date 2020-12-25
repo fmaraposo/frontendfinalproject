@@ -75,9 +75,10 @@ class Home extends React.Component {
             </div>
             <br />
             <div className="form-field">
-              <button className="treat-button">Join!</button>
+              <button className="treat-button-home">Join!</button>
             </div>
           </form>
+          <br />
           <br />
           <center className="p-home">
             Be a host and create a game! Log in{' '}

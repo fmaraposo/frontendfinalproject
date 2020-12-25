@@ -1,20 +1,26 @@
 import React from 'react';
 import Quiz from '../utils/api.js';
-/* import SearchBar from './SearchBar'; */
+//import SearchBar from './SearchBar';
 import { withRouter } from 'react-router-dom';
 import Navbar from './Navbar/Navbar';
+import Spotify from './Spotify'
 
 class Game extends React.Component {
-  state = {
-    questions: [],
-    songs: {
-      song0: '',
-      song1: '',
-      song2: '',
-      song3: '',
-      song4: '',
-    },
+  constructor(props) {
+    super(props);
+    //this.search = this.search.bind(this);
+    this.state = {
+      questions: [],
+      songs: {
+        song0: '',
+        song1: '',
+        song2: '',
+        song3: '',
+        song4: '',
+      },
+      searchResults: [],
   };
+}
 
   componentDidMount() {
     const quizService = new Quiz();
@@ -53,6 +59,11 @@ class Game extends React.Component {
     });
   };
 
+  //search(term) {
+  //  Spotify.search(term)
+  //      .then(searchResults => this.setState({ searchResults: searchResults }));
+ //}
+
   render() {
     return (
       <div>
@@ -61,6 +72,7 @@ class Game extends React.Component {
           <h1 className="primary-title">Game</h1>
           <form onSubmit={this.handleFormSubmit}>
             <div className="gameQuestions">
+            {/* <SearchBar onSearch = {this.search} /> */}
               <form onSubmit={this.handleFormSubmit}>
                 <ul className="game-board">
                   {this.state.questions.map((question, index) => {

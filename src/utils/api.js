@@ -40,5 +40,10 @@ class Quiz {
   getSongs(code, userToken) {
     return this.service.post(`/quiz/${code}/playlist`, { userToken });
   }
+
+  // logout() {
+  //   localStorage.removeItem("user");
+  //   return this.service.get("/logout");
+  // }  
 }
 export default Quiz;

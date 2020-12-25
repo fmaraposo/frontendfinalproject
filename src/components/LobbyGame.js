@@ -19,7 +19,7 @@ class LobbyGame extends React.Component {
           users: game.users,
         });
       });
-    }, 500);
+    }, 2000);
   }
 
   handleButton = () => {
@@ -36,7 +36,7 @@ class LobbyGame extends React.Component {
         </div>
         <div className="wrapper-lobbygame">
           <div>
-            <h1 className="primary-title">Waiting for all players...</h1>
+            <h1 className="primary-title">click start game when ready...</h1>
           </div>
           <div>
             <div className="users-display">
@@ -59,7 +59,7 @@ class LobbyGame extends React.Component {
         </div>
       </div>
     ) : (
-      <div>Loading</div>
+      <div>Loading...</div>
     );
   }
 }

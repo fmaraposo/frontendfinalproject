@@ -11,11 +11,17 @@ class Navbar extends Component {
         this.setState({ clicked: !this.state.clicked })
     }
 
+    handleLogout(e) {
+        e.preventDefault();
+        window.open('https://accounts.spotify.com/logout');
+        window.location.replace('/');
+      }
+
     render () {
         return (
             <nav className="NavbarItems">
-                <h1 className="navbar-logo"> <a href={'/'} style={{textDecoration:"none", color:"white"}}>DaHost</a> <i className="fab fa-spotify"></i></h1>
-                <div className="menu-icon" onclick={this.handleClick}>
+                <h1 className="navbar-logo"> <a href={'/'} style={{textDecoration:"none", color:"white"}}>Watermelon</a> <i className="fab fa-spotify"></i></h1>
+                <div className="menu-icon" onClick={this.handleClick}>
                     <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                     
                 </div>
@@ -31,7 +37,7 @@ class Navbar extends Component {
                     })}
                     
                 </ul>
-                <Button>Log Out</Button>
+                <Button onClick={this.handleLogout}>Log Out</Button>
             </nav>
         )
     }
