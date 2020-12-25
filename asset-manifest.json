@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/saraewilcox/Watermelon_frontend.git/static/css/main.4b614e74.chunk.css",
+    "main.js": "/saraewilcox/Watermelon_frontend.git/static/js/main.e66b0c14.chunk.js",
+    "main.js.map": "/saraewilcox/Watermelon_frontend.git/static/js/main.e66b0c14.chunk.js.map",
+    "runtime-main.js": "/saraewilcox/Watermelon_frontend.git/static/js/runtime-main.4e6e8ea2.js",
+    "runtime-main.js.map": "/saraewilcox/Watermelon_frontend.git/static/js/runtime-main.4e6e8ea2.js.map",
+    "static/js/2.c106edea.chunk.js": "/saraewilcox/Watermelon_frontend.git/static/js/2.c106edea.chunk.js",
+    "static/js/2.c106edea.chunk.js.map": "/saraewilcox/Watermelon_frontend.git/static/js/2.c106edea.chunk.js.map",
+    "static/js/3.200c5ac0.chunk.js": "/saraewilcox/Watermelon_frontend.git/static/js/3.200c5ac0.chunk.js",
+    "static/js/3.200c5ac0.chunk.js.map": "/saraewilcox/Watermelon_frontend.git/static/js/3.200c5ac0.chunk.js.map",
+    "index.html": "/saraewilcox/Watermelon_frontend.git/index.html",
+    "static/css/main.4b614e74.chunk.css.map": "/saraewilcox/Watermelon_frontend.git/static/css/main.4b614e74.chunk.css.map",
+    "static/js/2.c106edea.chunk.js.LICENSE.txt": "/saraewilcox/Watermelon_frontend.git/static/js/2.c106edea.chunk.js.LICENSE.txt",
+    "static/media/party_playlist_video.8bbc0a0c.mp4": "/saraewilcox/Watermelon_frontend.git/static/media/party_playlist_video.8bbc0a0c.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4e6e8ea2.js",
+    "static/js/2.c106edea.chunk.js",
+    "static/css/main.4b614e74.chunk.css",
+    "static/js/main.e66b0c14.chunk.js"
+  ]
+}
